@@ -5,9 +5,6 @@ const T = require('../types/types');
  * If you only pass one argument, it will return a number between 0 and that number.
  * By default random number range is between 0 and 100.
  *
- * Built using Fisher–Yates shuffle algorithm.
- * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
- *
  * @param {Number} min
  * @param {Number} max
  * @return {Number} random

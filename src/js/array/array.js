@@ -339,6 +339,9 @@ function array_unique(array) {
 /**
  * Returns a shuffled copy of the list, using a Fisher-Yates shuffle algorithm.
  *
+ * Built using Fisher–Yates shuffle algorithm.
+ * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+ *
  * Example usage:
  *
  * array_shuffle([1, 2, 3, 4, 5 ,6]) => [2, 3, 1, 4, 6, 5]
