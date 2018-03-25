@@ -40,6 +40,7 @@ function array_first() {
             return U.length(arg0) ? arg0[0] : [];
         }
 
+        /* istanbul ignore next */
         if (T.is_number(arg0)) {
             return function (_array) {
                 if (T.is_array(_array)) {
@@ -47,7 +48,7 @@ function array_first() {
                 }
 
                 return [];
-            }
+            };
         }
     }
 
@@ -87,10 +88,11 @@ function array_initial() {
             return U.length(arg0) ? arg0.slice(0, -1) : [];
         }
 
+        /* istanbul ignore next */
         if (T.is_number(arg0)) {
             return function takeArray(_array) {
                 return U.length(_array) ? _array.slice(0, -arg0) : [];
-            }
+            };
         }
     }
 
@@ -122,23 +124,27 @@ function array_last() {
 
     var numberOfArguments = U.length(args);
 
+    /* istanbul ignore next */
     if (numberOfArguments === 2 && T.is_number(arg0) && T.is_array(arg1)) {
         return U.length(arg1) ? arg1.slice(-arg0) : [];
     }
 
+    /* istanbul ignore next */
     if (numberOfArguments === 2 && T.is_array(arg0) && T.is_boolean(arg1)) {
         return [].concat(arg0[U.length(arg0) - 1]);
     }
 
     if (numberOfArguments === 1) {
+        /* istanbul ignore next */
         if (T.is_array(arg0)) {
             return U.length(arg0) ? arg0[U.length(arg0) - 1] : [];
         }
 
+        /* istanbul ignore next */
         if (T.is_number(arg0)) {
             return function takeArray(_array) {
                 return U.length(_array) ? _array.slice(-arg0) : [];
-            }
+            };
         }
     }
 
@@ -177,10 +183,11 @@ function array_rest() {
             return U.length(arg0) ? arg0.slice(1) : [];
         }
 
+        /* istanbul ignore next */
         if (T.is_number(arg0)) {
             return function takeArray(_array) {
                 return U.length(_array) ? _array.slice(arg0) : [];
-            }
+            };
         }
     }
 
@@ -261,6 +268,23 @@ function array_without(array) {
 }
 
 /**
+ * Produces a duplicate-free version of the array.
+ *
+ * Example usage:
+ *
+ * array_unique([1, 2, 2, 3, 4, 3, 1, 5, 5, 7, 6, 6]) => [1, 2, 3, 4, 5, 7, 6]
+ *
+ * @param {Array} array
+ * @return {Array}
+ * TODO: Remove duplicate objects and inner arrays.
+ */
+function array_unique(array) {
+    return array.filter(function checkPosition(value, index) {
+        return array.indexOf(value) === index;
+    });
+}
+
+/**
  * Computes the union of the passed-in arrays or values:
  * the list of unique items, in order, that are present in one or more of the arrays.
  *
@@ -294,14 +318,18 @@ function array_intersection() {
     var rest = array_rest(arrays);
     var intersection = [];
 
-    if (!T.is_array(mainArray)) {
+    if (U.length(arrays) === 0) {
         return [];
     }
 
+    if (!T.is_array(mainArray) || U.length(mainArray) === 0) {
+        return [];
+    }
+
+    /* istanbul ignore next */
     first:
     for (var i = 0; i < U.length(mainArray); i++) {
         var value = mainArray[i];
-        second:
         for (var j = 0; j < U.length(rest); j++) {
             var array = rest[j];
             if (T.is_array(array)) {
@@ -316,24 +344,7 @@ function array_intersection() {
         intersection.push(value);
     }
 
-    return U.length(intersection) ? array_unique(intersection) : [];
-}
-
-/**
- * Produces a duplicate-free version of the array.
- *
- * Example usage:
- *
- * array_unique([1, 2, 2, 3, 4, 3, 1, 5, 5, 7, 6, 6]) => [1, 2, 3, 4, 5, 7, 6]
- *
- * @param {Array} array
- * @return {Array}
- * TODO: Remove duplicate objects and inner arrays.
- */
-function array_unique(array) {
-    return array.filter(function checkPosition(value, index) {
-        return array.indexOf(value) === index;
-    })
+    return array_unique(intersection);
 }
 
 /**
@@ -376,8 +387,8 @@ module.exports = {
     array_compact,
     array_flatten,
     array_without,
+    array_unique,
     array_union,
     array_intersection,
-    array_unique,
     array_shuffle,
 };

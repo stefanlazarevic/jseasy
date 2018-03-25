@@ -1,7 +1,5 @@
 const T = require('../types/types');
-const U = require('../utility/utility');
 const E = require('../errors/errors');
-const { array_rest } = require('../array/array');
 
 /**
  * The string_trim() method returns the string stripped of whitespace from both ends.

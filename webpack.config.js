@@ -1,3 +1,5 @@
+/* global __dirname */
+
 module.exports = {
     entry: './src/js/index.js',
     output: {
@@ -17,4 +19,4 @@ module.exports = {
             },
         ],
     },
-}
+};

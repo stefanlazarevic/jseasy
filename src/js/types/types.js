@@ -125,7 +125,7 @@ function is_json(value) {
     } else {
         return false;
     }
-};
+}
 
 module.exports = {
     is_array,
@@ -140,4 +140,4 @@ module.exports = {
     is_NaN,
     is_date,
     is_json
-}
+};
