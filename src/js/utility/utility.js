@@ -10,7 +10,7 @@ const T = require('../types/types');
  * @return {Number} random
  */
 function random_number(min, max) {
-    var _min = 0, _max = 100;
+    let _min = 0, _max = 100;
 
     if (T.is_number(min) && !T.is_defined(max)) {
         _min = 0;

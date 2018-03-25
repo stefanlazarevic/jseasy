@@ -21,11 +21,11 @@ const U = require('../utility/utility');
  * @returns {mix|Array}
  */
 function array_first() {
-    var args = arguments;
-    var arg0 = args[0]; // Expecting number or array.
-    var arg1 = args[1]; // Expecting array or boolean or nothing.
+    const args = arguments;
+    const arg0 = args[0]; // Expecting number or array.
+    const arg1 = args[1]; // Expecting array or boolean or nothing.
 
-    var numberOfArguments = U.length(args);
+    const numberOfArguments = U.length(args);
 
     if (numberOfArguments === 2 && T.is_number(arg0) && T.is_array(arg1)) {
         return arg1.slice(0, arg0);
@@ -73,11 +73,11 @@ function array_first() {
  * @return {Array}
  */
 function array_initial() {
-    var args = arguments;
-    var arg0 = args[0]; // Expecting number or array.
-    var arg1 = args[1]; // Expecting array or nothing.
+    const args = arguments;
+    const arg0 = args[0]; // Expecting number or array.
+    const arg1 = args[1]; // Expecting array or nothing.
 
-    var numberOfArguments = U.length(args);
+    const numberOfArguments = U.length(args);
 
     if (numberOfArguments === 2 && T.is_number(arg0) && T.is_array(arg1)) {
         return arg0 > 0 ? arg1.slice(0, -arg0) : arg1.slice(0, -1);
@@ -118,11 +118,11 @@ function array_initial() {
  * @return {mix|Array}
  */
 function array_last() {
-    var args = arguments;
-    var arg0 = args[0]; // Expecting number or array.
-    var arg1 = args[1]; // Expecting array or nothing.
+    const args = arguments;
+    const arg0 = args[0]; // Expecting number or array.
+    const arg1 = args[1]; // Expecting array or nothing.
 
-    var numberOfArguments = U.length(args);
+    const numberOfArguments = U.length(args);
 
     /* istanbul ignore next */
     if (numberOfArguments === 2 && T.is_number(arg0) && T.is_array(arg1)) {
@@ -168,11 +168,11 @@ function array_last() {
  * @return {Array}
  */
 function array_rest() {
-    var args = arguments;
-    var arg0 = args[0]; // Expecting number or array.
-    var arg1 = args[1]; // Expecting array or nothing.
+    const args = arguments;
+    const arg0 = args[0]; // Expecting number or array.
+    const arg1 = args[1]; // Expecting array or nothing.
 
-    var numberOfArguments = U.length(args);
+    const numberOfArguments = U.length(args);
 
     if (numberOfArguments === 2 && T.is_number(arg0) && T.is_array(arg1)) {
         return U.length(arg1) ? arg1.slice(arg0) : [];
@@ -230,8 +230,8 @@ function array_compact(array) {
  * @return {Array}
  */
 function array_flatten() {
-    var arg0 = arguments[0]; // Expecting array.
-    var arg1 = arguments[1]; // Expecting boolean flag.
+    const arg0 = arguments[0]; // Expecting array.
+    const arg1 = arguments[1]; // Expecting boolean flag.
 
     if (T.is_array(arg0)) {
         if (arg1) { // If shallow, perform one level flattening.
@@ -260,7 +260,7 @@ function array_flatten() {
  * @return {Array}
  */
 function array_without(array) {
-    var arg1 = array_rest(U.to_array(arguments));
+    const arg1 = array_rest(U.to_array(arguments));
 
     return T.is_array(array) ? array.filter(function (value) {
         return !U.in_array(arg1, value);
@@ -313,10 +313,10 @@ function array_union() {
  * @return {Array}
  */
 function array_intersection() {
-    var arrays = U.to_array(arguments);
-    var mainArray = array_first(arrays, true);
-    var rest = array_rest(arrays);
-    var intersection = [];
+    const arrays = U.to_array(arguments);
+    const mainArray = array_first(arrays, true);
+    const rest = array_rest(arrays);
+    const intersection = [];
 
     if (U.length(arrays) === 0) {
         return [];
@@ -328,10 +328,10 @@ function array_intersection() {
 
     /* istanbul ignore next */
     first:
-    for (var i = 0; i < U.length(mainArray); i++) {
-        var value = mainArray[i];
-        for (var j = 0; j < U.length(rest); j++) {
-            var array = rest[j];
+    for (let i = 0; i < U.length(mainArray); i++) {
+        const value = mainArray[i];
+        for (let j = 0; j < U.length(rest); j++) {
+            const array = rest[j];
             if (T.is_array(array)) {
                 if (!U.in_array(rest[j], mainArray[i])) {
                     continue first;
@@ -365,9 +365,9 @@ function array_shuffle(array) {
         return [];
     }
 
-    var index, temp, randomIndex;
-    var arrayClone = [].concat(array);
-    var arrayLength = U.length(arrayClone);
+    let index, temp, randomIndex;
+    const arrayClone = [].concat(array);
+    const arrayLength = U.length(arrayClone);
 
     for (index = arrayLength - 1; index > 0; index--) {
         randomIndex = U.random_number(arrayLength);

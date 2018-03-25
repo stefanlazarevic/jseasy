@@ -16,7 +16,7 @@ const E = require('../errors/errors');
  */
 function curry(fn) {
     if (T.is_function(fn)) {
-        var args = A.array_rest(U.to_array(arguments));
+        const args = A.array_rest(U.to_array(arguments));
         return function takeMissingArguments() {
             return fn.apply(this, args.concat(U.to_array(arguments)));
         };
@@ -36,8 +36,8 @@ function curry(fn) {
  * @return {Function|mix}
  */
 function compose() {
-    var functions = arguments;
-    var index = functions.length;
+    const functions = arguments;
+    let index = functions.length;
     return function composeValue(value) {
         --index;
         return (index > -1) ? composeValue(functions[index](value)) : value;
