@@ -1,8 +1,8 @@
 # JSEasy
 ## A small intuitive functional library crafted to solve most common JavaScript problems in pure functional style.
 
-[![GitHub forks](https://img.shields.io/github/forks/stefanlazarevic/jseasy.svg?style=flat-square)](https://github.com/stefanlazarevic/jseasy/network)
+[![Build Status](https://travis-ci.org/stefanlazarevic/jseasy.svg?branch=master)](https://travis-ci.org/stefanlazarevic/jseasy)
 [![GitHub issues](https://img.shields.io/github/issues/stefanlazarevic/jseasy.svg?style=flat-square)](https://github.com/stefanlazarevic/jseasy/issues)
+[![GitHub forks](https://img.shields.io/github/forks/stefanlazarevic/jseasy.svg?style=flat-square)](https://github.com/stefanlazarevic/jseasy/network)
 [![GitHub stars](https://img.shields.io/github/stars/stefanlazarevic/jseasy.svg?style=flat-square)](https://github.com/stefanlazarevic/jseasy/stargazers)
 ![License MIT](https://img.shields.io/github/license/stefanlazarevic/jseasy.svg)
-
