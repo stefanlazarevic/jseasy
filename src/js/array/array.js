@@ -504,6 +504,12 @@ function array_shift(array) {
 }
 
 /**
+ * Reverses an array in place. The first array element becomes the last,
+ * and the last array element becomes the first.
+ *
+ * Example usage:
+ *
+ * array_reverse([1, 2, 3, 4]) => [4, 3, 2, 1]
  *
  * @param {Array} array
  * @param {Array}
