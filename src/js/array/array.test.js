@@ -76,6 +76,8 @@ describe('Testing array manipulation functions', () => {
     });
 
     it('Produces a duplicate-free version of the array.', () => {
+        expect(A.array_unique()).toEqual([]);
+        expect(A.array_unique(12)).toEqual([]);
         expect(A.array_unique([1, 2, 2, 3, 4, 3, 1, 5, 5, 7, 6, 6])).toEqual([1, 2, 3, 4, 5, 7, 6]);
     });
 
@@ -95,6 +97,68 @@ describe('Testing array manipulation functions', () => {
     it('Returns a shuffled copy of the list.', () => {
         expect(A.array_shuffle(numberArray)).not.toEqual(numberArray);
         expect(A.array_shuffle(12)).toEqual([]);
+    });
+
+    it('Should return array of plucked properties from objects.', () => {
+        const arrayOfUsers = [
+            null,
+            [1, 4, 3, 2],
+            {id: 1, name: 'Stefan'},
+            {id: 2, name: 'Milica'},
+            {id: 3, name: 'Nikola'},
+            {id: 4, name: 'Marko'},
+            {id: 5, name: 'Jelena'},
+            12
+        ];
+
+        expect(A.array_pluck()).toEqual([]);
+        expect(A.array_pluck([])).toEqual([]);
+        expect(A.array_pluck('id', arrayOfUsers)).toEqual([1, 2, 3, 4, 5]);
+        expect(A.array_pluck('unknown', arrayOfUsers)).toEqual([]);
+        expect(A.array_pluck('name')(arrayOfUsers)).toEqual(['Stefan', 'Milica', 'Nikola', 'Marko', 'Jelena']);
+        expect(A.array_pluck('name')(12)).toEqual([]);
+        expect(A.array_pluck(12, arrayOfUsers)).toEqual([]);
+        expect(A.array_pluck('name', 'Hello World')).toEqual([]);
+    });
+
+    it('Testing array_push function.', () => {
+        expect(A.array_push()).toEqual([]);
+        expect(A.array_push([])).toEqual([]);
+        expect(A.array_push([], [])).toEqual([[]]);
+        expect(A.array_push(12, [])).toEqual([]);
+        expect(A.array_push([], 1, 2, 3, 4)).toEqual([1, 2, 3, 4]);
+        expect(A.array_push([1, 2], [3, 4], 5, "6", {a: 7})).toEqual([1, 2, [3, 4], 5, "6", {a: 7}]);
+    });
+
+    it('Testing array_pop function.', () => {
+        const originalArray = [1, 2, 3, 4];
+        expect(A.array_pop()).toBe(undefined);
+        expect(A.array_pop(12)).toBe(undefined);
+        expect(A.array_pop([])).toBe(undefined);
+        expect(A.array_pop([1])).toBe(1);
+        expect(A.array_pop(originalArray)).toEqual(4);
+        expect(originalArray).toEqual(originalArray);
+    });
+
+    it('Testing array_unshift', () => {
+        expect(A.array_unshift()).toEqual([]);
+        expect(A.array_unshift([])).toEqual([]);
+        expect(A.array_unshift([], 1, 2, 3, 4)).toEqual([1, 2, 3, 4]);
+        expect(A.array_unshift([1, 2, 3], 4, 5)).toEqual([4, 5, 1, 2, 3]);
+    });
+
+    it('Testing array_unshift', () => {
+        expect(A.array_shift()).toBe(undefined);
+        expect(A.array_shift([])).toBe(undefined);
+        expect(A.array_shift("hello world")).toBe(undefined);
+        expect(A.array_shift([1, 2, 3, 4])).toBe(1);
+    });
+
+    it('Testing array_reverse', () => {
+        expect(A.array_reverse()).toEqual([]);
+        expect(A.array_reverse([])).toEqual([]);
+        expect(A.array_reverse({})).toEqual([]);
+        expect(A.array_reverse([1, 2, 3, 4])).toEqual([4, 3, 2, 1]);
     });
 
     // it('', () => {

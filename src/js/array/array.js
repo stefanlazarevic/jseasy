@@ -1,5 +1,6 @@
 const T = require('../types/types');
 const U = require('../utility/utility');
+const { object_pluck } = require('../object/object');
 
 /**
  * Return the first element from the list.
@@ -206,13 +207,9 @@ function array_rest() {
  * @return {Array}
  */
 function array_compact(array) {
-    if (T.is_array(array)) {
-        return array.filter(function checkIfFalsy(element) {
-            return Boolean(element);
-        });
-    }
-
-    return [];
+    return T.is_array(array) ? array.filter(function checkIfFalsy(element) {
+        return Boolean(element);
+    }) : [];
 }
 
 /**
@@ -255,6 +252,8 @@ function array_flatten() {
  *
  * array_without([1, 2, 3, 4, 5], 2, 4) => [1, 3, 5]
  *
+ * TODO: Performance optimization.
+ *
  * @param {Array} array
  * @param {mix}
  * @return {Array}
@@ -277,11 +276,12 @@ function array_without(array) {
  * @param {Array} array
  * @return {Array}
  * TODO: Remove duplicate objects and inner arrays.
+ * TODO: Performance optimization.
  */
 function array_unique(array) {
-    return array.filter(function checkPosition(value, index) {
+    return T.is_array(array) ? array.filter(function checkPosition(value, index) {
         return array.indexOf(value) === index;
-    });
+    }) : [];
 }
 
 /**
@@ -308,6 +308,8 @@ function array_union() {
  * Example usage:
  *
  * array_intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]) => [1, 2]
+ *
+ * TODO: Performance optimization.
  *
  * @param {Array}
  * @return {Array}
@@ -379,6 +381,144 @@ function array_shuffle(array) {
     return arrayClone;
 }
 
+/**
+ * Retrieves the values of a specified property from all objects in the collection.
+ *
+ * Example usage:
+ *
+ * array_pluck('id', [{id: 1}, {id:2}, {id:3}]) => [1, 2, 3]
+ *
+ * @param {String} key
+ * @param {Array} array
+ * @return {Array}
+ */
+function array_pluck(key, array) {
+    if (T.is_string(key) && T.is_array(array)) {
+        return _computePlucking(key, array);
+    }
+
+    if (U.length(arguments) === 1 && T.is_string(key)) {
+        return function takeArray(_array) {
+            return T.is_array(_array) ? _computePlucking(key, _array) : [];
+        };
+    }
+
+    return [];
+
+    /**
+     * Extract all properties from an objects inside collection.
+     * @param {String} key
+     * @param {Array} array
+     * @private
+     */
+    function _computePlucking(key, array) {
+        let pluckedArray = [];
+        let index = 0;
+        const numberOfItems = U.length(array);
+        for (index; index < numberOfItems; index++) {
+            /* istanbul ignore next */
+            if (T.is_object(array[index])) {
+                const value = object_pluck(key, array[index]);
+                if (T.is_defined(value)) {
+                    pluckedArray.push(value);
+                }
+            }
+        }
+
+        return pluckedArray;
+    }
+}
+
+/**
+ * Add one or more elements to the end of an array and
+ * return new array with all values included.
+ *
+ * Example usage:
+ *
+ * array_push([], 1, 2, 3, 4) => [1, 2, 3, 4]
+ *
+ * array_push([1, 2, 3], [4, 5, 6]) => [1, 2, 3, [4, 5, 6]]
+ *
+ * @param {Array} array
+ * @param {...args}
+ * @return {Array}
+ */
+function array_push(array) {
+    return T.is_array(array) ? array.concat(array_rest(U.to_array(arguments))) : [];
+}
+
+/**
+ * Return last element from a collection.
+ * Unlike array_last where function always return empty collection ([])
+ * if nothing is found or input is invalid, array_pop returns undefined as a result.
+ *
+ * NOTE: array_last does not mutate original array like native js array.pop()
+ *
+ * Example usage:
+ *
+ * array_pop([1, 2, 3, 4]) => 4
+ *
+ * array_pop("hello") => undefined
+ *
+ * @param {Array} array
+ * @return {mix}
+ */
+function array_pop(array) {
+    return T.is_array(array) ? array[U.length(array) - 1] : void 0;
+}
+
+/**
+ * Add one or more elements to the beginning of an array and
+ * return new array with all values included.
+ *
+ * Example usage:
+ *
+ * array_unshift([1, 2, 3], 4, 5) => [4, 5, 1, 2, 3]
+ *
+ * @param {Array} array
+ * @param {...args}
+ * @return {Array}
+ */
+function array_unshift(array) {
+    return T.is_array(array) ? array_rest(U.to_array(arguments)).concat(array) : [];
+}
+
+/**
+ * Return first element from a collection.
+ * Unlike array_first where function always return empty collection ([])
+ * if nothing is found or input is invalid, array_shift returns undefined as a result.
+ *
+ * NOTE: array_shift does not mutate original array like native js array.shift()
+ *
+ * Example usage:
+ *
+ * array_shift([1, 2, 3, 4]) => 1
+ *
+ * array_shift({name: 'Stefan'}) => undefined
+ *
+ * @param {Array} array
+ * @return {mix}
+ */
+function array_shift(array) {
+    return T.is_array(array) ? array[0] : void 0;
+}
+
+/**
+ *
+ * @param {Array} array
+ * @param {Array}
+ */
+function array_reverse(array) {
+    if (T.is_array(array)) {
+        let numberOfElements = U.length(array);
+        return array.map(function mapElementReversed(value, index) {
+            return array[numberOfElements - (index + 1)];
+        });
+    }
+
+    return [];
+}
+
 module.exports = {
     array_first,
     array_initial,
@@ -391,4 +531,10 @@ module.exports = {
     array_union,
     array_intersection,
     array_shuffle,
+    array_pluck,
+    array_push,
+    array_pop,
+    array_unshift,
+    array_shift,
+    array_reverse
 };
