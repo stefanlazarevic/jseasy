@@ -4,8 +4,8 @@ node_js:
     - '7'
     - 'stable'
 install:
-    npm i
-    npm i -g coveralls
+    - npm i
+    - npm i -g coveralls
 script: npm run ci
 after_success:
     - cat ./coverage/lcov.info | coveralls
