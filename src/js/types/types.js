@@ -1,3 +1,4 @@
+
 /**
  * Determines whether the passed value is an array.
  *
@@ -25,7 +26,7 @@ function is_object(value) {
  * @return {Boolean}
  */
 function is_string(value) {
-    return Object.prototype.toString.call(value) === '[object String]' && typeof value === 'string';
+    return typeof value === 'string';
 }
 
 /**
@@ -35,7 +36,7 @@ function is_string(value) {
  * @return {Boolean}
  */
 function is_number(value) {
-    return Object.prototype.toString.call(value) === '[object Number]' && !is_NaN(value);
+    return typeof value === 'number' && !is_NaN(value);
 }
 
 /**
@@ -45,7 +46,7 @@ function is_number(value) {
  * @returns {Boolean}
  */
 function is_boolean(value) {
-    return Object.prototype.toString.call(value) === '[object Boolean]' && typeof value === 'boolean';
+    return typeof value === 'boolean';
 }
 
 /**
@@ -55,7 +56,7 @@ function is_boolean(value) {
  * @returns {Boolean}
  */
 function is_function(value) {
-    return Object.prototype.toString.call(value) === '[object Function]' && typeof value === 'function';
+    return typeof value === 'function';
 }
 
 /**
@@ -127,6 +128,15 @@ function is_json(value) {
     }
 }
 
+/**
+ * Determines if a value is valid Symbol.
+ *
+ * @param {mix} value
+ */
+function is_symbol(value) {
+    return typeof value === 'symbol';
+}
+
 module.exports = {
     is_array,
     is_object,
@@ -139,5 +149,6 @@ module.exports = {
     is_defined,
     is_NaN,
     is_date,
-    is_json
+    is_json,
+    is_symbol
 };

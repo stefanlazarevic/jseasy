@@ -159,4 +159,10 @@ describe('Testing type checkers', () => {
             expect(type.is_json(_string)).toBe(false);
         });
     });
+
+    describe('Test symbol type validator', () => {
+        it('Should return true if value is a symbol.', () => {
+            expect(type.is_symbol(Symbol('x'))).toBe(true);
+        });
+    });
 });

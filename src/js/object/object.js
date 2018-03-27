@@ -33,6 +33,30 @@ function object_pluck(key, object) {
     return object[key];
 }
 
+/**
+ * The object_keys function returns an array of a given object's own enumerable properties.
+ *
+ * @param {Object} object
+ * @return {Array}
+ */
+function object_keys(object) {
+    if (T.is_object(object) || T.is_array(object) || T.is_string(object)) {
+        const keys = [];
+        let key;
+        for (key in object) {
+            /* istanbul ignore next */
+            if (object.hasOwnProperty(key)) {
+                keys.push(key);
+            }
+        }
+
+        return keys;
+    }
+
+    return [];
+}
+
 module.exports = {
     object_pluck,
+    object_keys
 };
