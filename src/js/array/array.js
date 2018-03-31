@@ -1,25 +1,34 @@
+require('../jsdocs/jsdocs');
 const T = require('../types/types');
 const U = require('../utility/utility');
 const { object_pluck } = require('../object/object');
+
+/**
+ * A collection of array manipulating functions.
+ * @module Array
+ */
 
 /**
  * Return the first element from the list.
  * By providing number (n) as a first argument,
  * result will be an array of the first n elements from a list.
  *
- * Example usage:
- *
- * array_first([1, 2, 3]) => 1
- *
- * array_first([1, 2, 3], true) => [1]
- *
- * array_first(2, [1, 2, 3, 4]) => [1, 2]
- *
- * array_first(2)([1, 2, 3, 4]) => [1, 2]
- *
- * @param {Number|Array} n
- * @param {Array?|Boolean?} arr
- * @returns {mix|Array}
+ * @memberOf module:Array
+ * @param {Number|Array} n Number of first values to get, or array.
+ * @param {Array|Boolean} [arr] The array to process, or array convert flag.
+ * @returns {mix|Array} Returns first value from array or the new array containing n values.
+ * @example
+ * array_first([1, 2, 3]);
+ * // => 1
+ * @example
+ * array_first([1, 2, 3], true);
+ * // => [1]
+ * @example
+ * array_first(2, [1, 2, 3, 4]);
+ * // => [1, 2]
+ * @example
+ * array_first(2)([1, 2, 3, 4]);
+ * // => [1, 2]
  */
 function array_first() {
     const args = arguments;
@@ -61,17 +70,19 @@ function array_first() {
  * Especially useful on the arguments object.
  * Pass n to exclude the last n elements from the result.
  *
- * Example usage:
- *
- * array_initial([5, 4, 3, 2, 1]) => [5, 4, 3, 2]
- *
- * array_initial(2, [5, 4, 3, 2, 1]) => [5, 4, 3]
- *
- * array_initial(3)([5, 4, 3, 2, 1]) => [5, 4]
- *
- * @param {Number|array} n
- * @param {Array?} array
- * @return {Array}
+ * @memberOf module:Array
+ * @param {Number|Array} n Number of last values to exclude, or array to process.
+ * @param {Array} [array] The array to process.
+ * @return {Array} Returns the new array containing initial values.
+ * @example
+ * array_initial([5, 4, 3, 2, 1]);
+ * // => [5, 4, 3, 2]
+ * @example
+ * array_initial(2, [5, 4, 3, 2, 1]);
+ * // => [5, 4, 3]
+ * @example
+ * array_initial(3)([5, 4, 3, 2, 1]);
+ * // => [5, 4]
  */
 function array_initial() {
     const args = arguments;
@@ -104,19 +115,22 @@ function array_initial() {
  * Returns the last element of an array.
  * Passing n will return the last n elements of the array.
  *
- * Example usage:
- *
- * array_last([5, 4, 3, 2, 1]) => 1
- *
- * array_last([5, 4, 3, 2, 1], true) => [1]
- *
- * array_last(2, [5, 4, 3, 2, 1]) => [2, 1]
- *
- * array_last(2)([5, 4, 3, 2, 1]) => [2, 1]
- *
- * @param {Number|Array}
- * @param {Array|Boolean}
- * @return {mix|Array}
+ * @memberOf module:Array
+ * @param {Number|Array} n Number of first elements to exclude or Array to process.
+ * @param {Array|Boolean} a Array to process or array convert flag.
+ * @return {mix|Array} Returns last value or the new array containing last value(s)
+ * @example
+ * array_last([5, 4, 3, 2, 1]);
+ * // => 1
+ * @example
+ * array_last([5, 4, 3, 2, 1], true);
+ * // => [1]
+ * @example
+ * array_last(2, [5, 4, 3, 2, 1]);
+ * // => [2, 1]
+ * @example
+ * array_last(2)([5, 4, 3, 2, 1]);
+ * // => [2, 1]
  */
 function array_last() {
     const args = arguments;
@@ -156,17 +170,17 @@ function array_last() {
  * Returns the rest of the elements in an array.
  * Pass an index to return the values of the array from that index onward.
  *
- * Example usage:
- *
- * array_rest([1, 2, 3, 4]) => [2, 3, 4]
- *
- * array_rest(2, [1, 2, 3, 4]) => [3, 4]
- *
- * array_rest(2)([1, 2, 3, 4]) => [3, 4]
- *
- * @param {Number|Array}
- * @param {Array?}
- * @return {Array}
+ * @memberOf module:Array
+ * @param {Number|Array} Number of elements to skip or Array to process.
+ * @param {Array} [arr] Array to process
+ * @return {Array} Returns the new array containing rest values
+ * @example
+ * array_rest([1, 2, 3, 4]);
+ * // => [2, 3, 4]
+ * array_rest(2, [1, 2, 3, 4]);
+ * // => [3, 4]
+ * array_rest(2)([1, 2, 3, 4]);
+ * // => [3, 4]
  */
 function array_rest() {
     const args = arguments;
@@ -199,12 +213,12 @@ function array_rest() {
  * Returns a copy of the array with all falsy values removed.
  * In JavaScript, false, null, 0, "", undefined and NaN are all falsy.
  *
- * Example usage
- *
- * array_compact([0, 1, "Hello", {}, null, [1, 2, 3], void 0]) => [1, "Hello", {}, [1, 2, 3]]
- *
- * @param {Array} array
- * @return {Array}
+ * @memberOf module:Array
+ * @param {Array} array Array to process.
+ * @return {Array} Returns array containing thruthy values.
+ * @example
+ * array_compact([0, 1, "Hello", {}, null, [1, 2, 3], void 0])
+ * // => [1, "Hello", {}, [1, 2, 3]]
  */
 function array_compact(array) {
     return T.is_array(array) ? array.filter(function checkIfFalsy(element) {
@@ -216,15 +230,15 @@ function array_compact(array) {
  * Flattens a nested array (the nesting can be to any depth).
  * If you pass shallow, the array will only be flattened a single level.
  *
- * Example usage:
- *
- * array_flatten([1, [2], [3, [[4]]]]) => [1, 2, 3, 4]
- *
- * array_flatten([1, [2], [3, [[4]]]], true) => [1, 2, 3, [[4]]]
- *
- * @param {Array}
- * @param {Boolean?}
- * @return {Array}
+ * @param {Array} arr Array to process.
+ * @param {Boolean} [shallow] Flat only one level in depth.
+ * @return {Array} Returns flatten array.
+ * @example
+ * array_flatten([1, [2], [3, [[4]]]])
+ * // => [1, 2, 3, 4]
+ * @example
+ * array_flatten([1, [2], [3, [[4]]]], true);
+ * // => [1, 2, 3, [[4]]]
  */
 function array_flatten() {
     const arg0 = arguments[0]; // Expecting array.
@@ -248,35 +262,35 @@ function array_flatten() {
 /**
  * Returns a copy of the array with all instances of the values removed.
  *
- * Example usage:
- *
- * array_without([1, 2, 3, 4, 5], 2, 4) => [1, 3, 5]
- *
  * TODO: Performance optimization.
  *
- * @param {Array} array
- * @param {mix}
- * @return {Array}
+ * @param {Array} array Array to process.
+ * @param {...arguments}
+ * @return {Array} Returns new array without v
+ * @example
+ * array_without([1, 2, 3, 4, 5], 2, 4)
+ * // => [1, 3, 5]
  */
 function array_without(array) {
-    const arg1 = array_rest(U.to_array(arguments));
+    const rest = array_rest(U.to_array(arguments));
 
     return T.is_array(array) ? array.filter(function (value) {
-        return !U.in_array(arg1, value);
+        return !U.in_array(rest, value);
     }) : [];
 }
 
 /**
  * Produces a duplicate-free version of the array.
  *
- * Example usage:
- *
- * array_unique([1, 2, 2, 3, 4, 3, 1, 5, 5, 7, 6, 6]) => [1, 2, 3, 4, 5, 7, 6]
- *
- * @param {Array} array
- * @return {Array}
  * TODO: Remove duplicate objects and inner arrays.
+ *
  * TODO: Performance optimization.
+ *
+ * @param {Array} array Array to process.
+ * @return {Array} Returns array with duplicate free values.
+ * @example
+ * array_unique([1, 2, 2, 3, 4, 3, 1, 5, 5, 7, 6, 6])
+ * // => [1, 2, 3, 4, 5, 7, 6]
  */
 function array_unique(array) {
     return T.is_array(array) ? array.filter(function checkPosition(value, index) {
@@ -288,14 +302,14 @@ function array_unique(array) {
  * Computes the union of the passed-in arrays or values:
  * the list of unique items, in order, that are present in one or more of the arrays.
  *
- * Example usage:
- *
- * array_union([1, 2, 3], [101, 2, 1, 10], [2, 1]) => [1, 2, 3, 101, 10]
- *
- * array_union(1, 2, [3, 2], 4, [2, 5]) => [1, 2, 3, 4, 5]
- *
- * @param {Array}
- * @return {Array}
+ * @param {Array} array Array to process
+ * @return {Array} Returns the new array of combined values.
+ * @example
+ * array_union([1, 2, 3], [101, 2, 1, 10], [2, 1])
+ * // => [1, 2, 3, 101, 10]
+ * @example
+ * array_union(1, 2, [3, 2], 4, [2, 5])
+ * // => [1, 2, 3, 4, 5]
  */
 function array_union() {
     return array_unique(array_flatten(U.to_array(arguments)));
@@ -305,14 +319,13 @@ function array_union() {
  * Computes the list of values that are the intersection of all the arrays.
  * Each value in the result is present in each of the arrays.
  *
- * Example usage:
- *
- * array_intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]) => [1, 2]
- *
  * TODO: Performance optimization.
  *
- * @param {Array}
- * @return {Array}
+ * @param {Array} array Array to process.
+ * @return {Array} Returns the new array of shared values.
+ * @example
+ * array_intersection([1, 2, 3], [101, 2, 1, 10], [2, 1])
+ * // => [1, 2]
  */
 function array_intersection() {
     const arrays = U.to_array(arguments);
@@ -355,12 +368,11 @@ function array_intersection() {
  * Built using Fisher–Yates shuffle algorithm.
  * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
  *
- * Example usage:
- *
- * array_shuffle([1, 2, 3, 4, 5 ,6]) => [2, 3, 1, 4, 6, 5]
- *
- * @param {Array} array
- * @return {Array}
+ * @param {Array} array Array to process.
+ * @return {Array} Returns the new shuffled array.
+ * @example
+ * array_shuffle([1, 2, 3, 4, 5 ,6]);
+ * // => [2, 3, 1, 4, 6, 5]
  */
 function array_shuffle(array) {
     if (!T.is_array(array)) {
@@ -384,13 +396,12 @@ function array_shuffle(array) {
 /**
  * Retrieves the values of a specified property from all objects in the collection.
  *
- * Example usage:
- *
- * array_pluck('id', [{id: 1}, {id:2}, {id:3}]) => [1, 2, 3]
- *
- * @param {String} key
- * @param {Array} array
- * @return {Array}
+ * @param {String} key Object key or nested object key path.
+ * @param {Array} array Array of objects to process.
+ * @return {Array} Returns the array with plucked values from object.
+ * @example
+ * array_pluck('id', [{id: 1}, {id:2}, {id:3}]);
+ * // => [1, 2, 3]
  */
 function array_pluck(key, array) {
     if (T.is_string(key) && T.is_array(array)) {
@@ -407,8 +418,10 @@ function array_pluck(key, array) {
 
     /**
      * Extract all properties from an objects inside collection.
-     * @param {String} key
-     * @param {Array} array
+     *
+     * @param {String} key Object key or nested object key path.
+     * @param {Array} array Array to process.
+     * @returns {Array} Returns plucked values from objects.
      * @private
      */
     function _computePlucking(key, array) {
@@ -433,15 +446,15 @@ function array_pluck(key, array) {
  * Add one or more elements to the end of an array and
  * return new array with all values included.
  *
- * Example usage:
- *
- * array_push([], 1, 2, 3, 4) => [1, 2, 3, 4]
- *
- * array_push([1, 2, 3], [4, 5, 6]) => [1, 2, 3, [4, 5, 6]]
- *
- * @param {Array} array
- * @param {...args}
- * @return {Array}
+ * @param {Array} array Original array.
+ * @param {mix} [...args] Values to add to array.
+ * @return {Array} Returns new array with values appended to original.
+ * @example
+ * array_push([], 1, 2, 3, 4);
+ * // => [1, 2, 3, 4]
+ * @example
+ * array_push([1, 2, 3], [4, 5, 6]);
+ * // => [1, 2, 3, [4, 5, 6]]
  */
 function array_push(array) {
     return T.is_array(array) ? array.concat(array_rest(U.to_array(arguments))) : [];
@@ -454,14 +467,14 @@ function array_push(array) {
  *
  * NOTE: array_last does not mutate original array like native js array.pop()
  *
- * Example usage:
- *
- * array_pop([1, 2, 3, 4]) => 4
- *
- * array_pop("hello") => undefined
- *
- * @param {Array} array
- * @return {mix}
+ * @param {Array} array Array to process.
+ * @return {*} Last value from an array.
+ * @example
+ * array_pop([1, 2, 3, 4]);
+ * // => 4
+ * @example
+ * array_pop("hello")
+ * // => undefined
  */
 function array_pop(array) {
     return T.is_array(array) ? array[U.length(array) - 1] : void 0;
@@ -471,13 +484,12 @@ function array_pop(array) {
  * Add one or more elements to the beginning of an array and
  * return new array with all values included.
  *
- * Example usage:
- *
- * array_unshift([1, 2, 3], 4, 5) => [4, 5, 1, 2, 3]
- *
- * @param {Array} array
- * @param {...args}
- * @return {Array}
+ * @param {Array} array Array to process.
+ * @param {...*} elements Elements to add at the begining of array.
+ * @return {Array} Returns array with new values values at the begining.
+ * @example
+ * array_unshift([1, 2, 3], 4, 5);
+ * // => [4, 5, 1, 2, 3]
  */
 function array_unshift(array) {
     return T.is_array(array) ? array_rest(U.to_array(arguments)).concat(array) : [];
@@ -490,14 +502,14 @@ function array_unshift(array) {
  *
  * NOTE: array_shift does not mutate original array like native js array.shift()
  *
- * Example usage:
- *
- * array_shift([1, 2, 3, 4]) => 1
- *
- * array_shift({name: 'Stefan'}) => undefined
- *
- * @param {Array} array
- * @return {mix}
+ * @param {Array} array Array to process.
+ * @return {*} Returns first element from an array.
+ * @example
+ * array_shift([1, 2, 3, 4]);
+ * // => 1
+ * @example
+ * array_shift({name: 'Stefan'});
+ * // => undefined
  */
 function array_shift(array) {
     return T.is_array(array) ? array[0] : void 0;
@@ -507,12 +519,11 @@ function array_shift(array) {
  * Reverses an array in place. The first array element becomes the last,
  * and the last array element becomes the first.
  *
- * Example usage:
- *
- * array_reverse([1, 2, 3, 4]) => [4, 3, 2, 1]
- *
- * @param {Array} array
- * @param {Array}
+ * @param {Array} array Array to process.
+ * @returns {Array} Returns reversed array.
+ * @example
+ * array_reverse([1, 2, 3, 4]);
+ * // => [4, 3, 2, 1]
  */
 function array_reverse(array) {
     if (T.is_array(array)) {

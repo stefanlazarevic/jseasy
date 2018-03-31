@@ -1,13 +1,28 @@
+require('../jsdocs/jsdocs');
 const T = require('../types/types');
+
+/**
+ * Collection of Utility functions.
+ * @module Utility
+ */
 
 /**
  * Returns a random integer between min and max. (inclusive)
  * If you only pass one argument, it will return a number between 0 and that number.
  * By default random number range is between 0 and 100.
  *
- * @param {Number} min
- * @param {Number} max
- * @return {Number} random
+ * @param {Number} [min = 0] A minimum posible number generated.
+ * @param {Number} [max = 100] A maximum posible number generated.
+ * @returns {Number} Returns the random number.
+ * @example
+ * random_number()
+ * // => returns an integer between 0 and 100
+ * @example
+ * random_number(50)
+ * // => returns an integer between 0 and 50
+ * @example
+ * random_number(50, 200)
+ * // => returns an integer between 50 and 200
  */
 function random_number(min, max) {
     let _min = 0, _max = 100;
@@ -29,37 +44,31 @@ function random_number(min, max) {
  * Creates a real Array from the list (anything that can be iterated over).
  * Useful for transmuting the arguments object.
  *
- * Example usage:
- *
- * to_array({0: 10, 1: 20, length: 2}) => [10, 20]
- *
- * to_array("word") => ["w", "o", "r", "d"]
- *
- * @param {Iteratable}
- * @return {Array}
+ * @param {IteratableObject} iteratableObject An object that has length property.
+ * @returns {Array} Array containing all values from an IteratableObject.
+ * @example
+ * to_array({0: 10, 1: 20, length: 2})
+ * // => [10, 20]
+ * @example
+ * to_array("word")
+ * // => ["w", "o", "r", "d"]
  */
-function to_array(object) {
-    return Array.prototype.slice.call(object);
+function to_array(iteratableObject) {
+    return Array.prototype.slice.call(iteratableObject);
 }
 
 /**
- * Determines if array contain value.
+ * Determines if collection contain value.
  *
- * Example usage:
- *
- * in_array([1, 2, 3, 4], 3) => true
- *
- * in_array([2, 4, 5, 2, 1], 6) => false
- *
- * TODO: check for objects and inner arrays inside array.
- * Cover following cases in update:
- *
- * in_array([[1, 2], 3, 4, 5], [1, 2]) => true
- *
- * in_array([{name: 'Stefan'}, {name: 'Milica'}], {name: Stefan}) => true
- *
- * @param {Array} array
- * @return {Boolean}
+ * @param {Array} array Collection in which the value is searched.
+ * @param {*} value Searched value.
+ * @returns {Boolean} Truthfulness of the contents.
+ * @example
+ * in_array([1, 2, 3, 4], 3)
+ * // => true
+ * @example
+ * in_array([2, 4, 5, 2, 1], 6)
+ * // => false
  */
 function in_array(array, value) {
     return T.is_array(array) ? Boolean(~array.indexOf(value)) : false;
@@ -69,8 +78,17 @@ function in_array(array, value) {
  * Return type of provided value.
  * Prevent pitfall types such as NaN, null, []
  *
- * @param {mix} value
- * @return {String}
+ * @param {mix} [value = 'undefined'] Checked value.
+ * @returns {String} A type of value.
+ * @example
+ * type(null)
+ * // => 'null'
+ * @example
+ * type([1, 2, 3])
+ * // => 'array'
+ * @example
+ * type(NaN)
+ * // => 'NaN
  */
 function type(value) {
     if (T.is_NaN(value)) {
@@ -92,52 +110,34 @@ function type(value) {
  * Get length of list, number of properties in object or number of characters in string.
  * Default return value will be 0.
  *
- * Example usage:
- *
- * length([1, 2, 3, 4]) => 4
- *
- * length({a: 10, b: 15}) => 2
- *
- * length("abcdefg") => 7
- *
- * @param {mix} value
- * @return {Number} length
- * @alias count
+ * @param {IteratableObject} iteratableObject An object that has length property.
+ * @returns {Number} Size of an iteratableObject
+ * @example
+ * length([1, 2, 3, 4])
+ * // => 4
+ * @example
+ * length({a: 10, b: 15})
+ * // => 2
+ * @example
+ * length("abcdefg")
+ * // => 7
  */
-function length(value) {
+function length(iteratableObject) {
 
-    if (!T.is_defined(value)) {
+    if (!T.is_defined(iteratableObject)) {
         return 0;
     }
 
-    if (T.is_object(value)) {
-        return Object.keys(value).length;
+    if (T.is_object(iteratableObject)) {
+        return Object.keys(iteratableObject).length;
     }
 
-    if (T.is_string(value) || T.is_array(value)) {
-        return value.length;
+    if (T.is_string(iteratableObject) || T.is_array(iteratableObject)) {
+        return iteratableObject.length;
     }
 
     return 0;
 }
-
-/**
- * Get length of list, number of properties in object or number of characters in string.
- * Default return value will be 0.
- *
- * Example usage:
- *
- * length([1, 2, 3, 4]) => 4
- *
- * length({a: 10, b: 15}) => 2
- *
- * length("abcdefg") => 7
- *
- * @param {mix} value
- * @return {Number} length
- * @alias length
- */
-const count = length;
 
 module.exports = {
     random_number,
@@ -145,5 +145,4 @@ module.exports = {
     in_array,
     type,
     length,
-    count
 };

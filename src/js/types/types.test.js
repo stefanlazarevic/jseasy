@@ -146,6 +146,7 @@ describe('Testing type checkers', () => {
         it('Should return false if value is not a date', () => {
             expect(type.is_date(_number)).toBe(false);
             expect(type.is_date(_string)).toBe(false);
+            expect(type.is_date(new Date().getYear())).toBe(false);
         });
     });
 

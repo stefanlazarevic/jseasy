@@ -1,10 +1,16 @@
 const { type } = require('../utility/utility');
 
 /**
+ * A collection of error throwing functions.
+ * @module Error
+ */
+
+/**
  * Throw new TypeError with invalid message.
  *
  * @param {String} expected
- * @param {mix} value
+ * @param {*} actual
+ * @throws {TypeError}
  */
 function throwTypeError(expectedType) {
     /* istanbul ignore next */
@@ -21,7 +27,8 @@ function throwTypeError(expectedType) {
  * Composed throwTypeError function.
  * Throw error with string type message.
  *
- * @param {mix} value
+ * @param {*} value
+ * @throws {TypeError}
  */
 const throwStringTypeError = throwTypeError('string');
 
@@ -29,7 +36,8 @@ const throwStringTypeError = throwTypeError('string');
  * Composed throwTypeError function.
  * Throw error with function type message.
  *
- * @param {mix} value
+ * @param {*} value
+ * @throws {TypeError}
  */
 const throwFunctionTypeError = throwTypeError('function');
 
@@ -37,7 +45,8 @@ const throwFunctionTypeError = throwTypeError('function');
  * Composed throwTypeError function.
  * Throw error with object type message.
  *
- * @param {mix} value
+ * @param {*} value
+ * @throws {TypeError}
  */
 const throwObjectTypeError = throwTypeError('object');
 

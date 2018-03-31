@@ -4,6 +4,11 @@ const U = require('../utility/utility');
 const E = require('../errors/errors');
 
 /**
+ * A collection of FP style functions.
+ * @module Function
+ */
+
+/**
  * Currying refers to the process of transforming a function with multiple arity
  * into the same function with less arity. The curried effect is achieved by binding
  * some of the arguments to the first function invoke,
@@ -13,6 +18,7 @@ const E = require('../errors/errors');
  *
  * @param {Function} fn
  * @return {Function|mix}
+ * @throws {TypeError}
  */
 function curry(fn) {
     if (T.is_function(fn)) {

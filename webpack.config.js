@@ -1,10 +1,14 @@
 /* global __dirname */
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: {
+        'jseasy': './src/js/index.js',
+        'jseasy.min': './src/js/index.js',
+    },
     output: {
-        filename: 'jseasy.js',
-        path: `${__dirname}/js`
+        filename: '[name].js',
+        path: `${__dirname}/dist/js`
     },
     devtool: 'inline-source-map',
     module: {
@@ -19,4 +23,10 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            include: /\.min\.js$/,
+            minimize: true,
+        }),
+    ]
 };

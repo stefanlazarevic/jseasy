@@ -1,4 +1,4 @@
-const F = require('./functions');
+const F = require('./function');
 const { string_capitalize } = require('../string/string');
 const { object_pluck } = require('../object/object');
 
