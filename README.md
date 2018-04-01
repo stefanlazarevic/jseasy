@@ -22,3 +22,6 @@
 ## Learning JSEasy
 
 Full documentation with examples is available at: <a href="https://stefanlazarevic.github.io/jseasy/" target="_blank">https://stefanlazarevic.github.io/jseasy/</a>
+
+<!-- Documentation script -->
+<script src="jseasy.min.js"></script>

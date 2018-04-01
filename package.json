@@ -2,15 +2,17 @@
   "name": "jseasy",
   "version": "0.1.0",
   "description": "A small intuitive functional library crafted to solve most common JavaScript problems in pure functional style..",
-  "main": "index.js",
+  "main": "src/js/index.js",
   "scripts": {
+    "copy": "cp ./dist/jseasy.min.js ./node_modules/minami/static/scripts/",
     "test": "npm run lint && jest",
     "coverage": "jest --coverage",
     "lint": "eslint src webpack.config.js",
-    "build": "npm run test && npm run generate-doc && webpack",
-    "watch": "npm run test && npm run generate-doc && webpack --watch",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "ci": "npm run test && npm run coverage",
-    "generate-doc": "./node_modules/.bin/jsdoc -r -c jsdoc.json"
+    "generate-docs": "./node_modules/.bin/jsdoc -r -c jsdoc.json --package ./package.json",
+    "deploy": "npm run test && npm run coverage && npm run build && npm run copy && npm run generate-docs"
   },
   "eslintIgnore": [
     "*.test.js"

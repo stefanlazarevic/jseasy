@@ -2,6 +2,7 @@
     "source": {
         "include": [
             "./src/js/",
+            "./dist/jseasy.min.js",
             "./README.md"
         ],
         "includePattern": ".js$"
@@ -12,10 +13,15 @@
     },
     "templates": {
         "default": {
-            "outputSourceFiles": false,
-            "useLongnameInNav": true
+            "outputSourceFiles": true,
+            "useLongnameInNav": true,
+            "staticFiles": {
+                "paths": ["./dist/jseasy.min.js"]
+            },
+            "layoutFile": "./src/js/jsdocs/layout.tmpl"
         },
         "useLongnameInNav": true
     },
-    "plugins": ["plugins/markdown"]
+    "plugins": ["plugins/markdown"],
+    "dateFormat": "MMMM Do YYYY, h:mm:ss a"
 }

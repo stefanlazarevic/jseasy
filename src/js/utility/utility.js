@@ -3,6 +3,7 @@ const T = require('../types/types');
 
 /**
  * Collection of Utility functions.
+ * <script src="scripts/jseasy.min.js"></script>
  * @module Utility
  */
 
