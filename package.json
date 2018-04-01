@@ -11,7 +11,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "ci": "npm run test && npm run coverage",
-    "generate-docs": "./node_modules/.bin/jsdoc -r -c jsdoc.json --package ./package.json",
+    "generate-docs": "./node_modules/.bin/jsdoc -r -c jsdoc.json",
     "deploy": "npm run test && npm run coverage && npm run build && npm run copy && npm run generate-docs"
   },
   "eslintIgnore": [
