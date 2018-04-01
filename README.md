@@ -18,3 +18,7 @@
     <a href="https://github.com/stefanlazarevic/jseasy/stargazers"><img src="https://img.shields.io/github/stars/stefanlazarevic/jseasy.svg?style=flat-square" alt="GitHub stars" /></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/stefanlazarevic/jseasy.svg" alt="License MIT" /></a>
 </p>
+
+## Learning JSEasy
+
+Full documentation with examples is available at: <a href="https://stefanlazarevic.github.io/jseasy/" target="_blank">https://stefanlazarevic.github.io/jseasy/</a>

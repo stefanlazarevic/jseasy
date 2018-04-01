@@ -1,4 +1,3 @@
-/* Under construction */
 const A = require('./array/array');
 const D = require('./date/date');
 const E = require('./errors/errors');

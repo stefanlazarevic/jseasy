@@ -1,7 +1,8 @@
 {
     "source": {
         "include": [
-            "./src/js/"
+            "./src/js/",
+            "./README.md"
         ],
         "includePattern": ".js$"
     },
