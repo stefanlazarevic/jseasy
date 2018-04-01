@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>types/types.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Array.html">Array</a><ul class='methods'><li data-type='method'><a href="module-Array.html#.array_compact">array_compact</a></li><li data-type='method'><a href="module-Array.html#.array_first">array_first</a></li><li data-type='method'><a href="module-Array.html#.array_initial">array_initial</a></li><li data-type='method'><a href="module-Array.html#.array_last">array_last</a></li><li data-type='method'><a href="module-Array.html#.array_rest">array_rest</a></li><li data-type='method'><a href="module-Array.html#~array_flatten">array_flatten</a></li><li data-type='method'><a href="module-Array.html#~array_intersection">array_intersection</a></li><li data-type='method'><a href="module-Array.html#~array_pluck">array_pluck</a></li><li data-type='method'><a href="module-Array.html#~array_pop">array_pop</a></li><li data-type='method'><a href="module-Array.html#~array_push">array_push</a></li><li data-type='method'><a href="module-Array.html#~array_reverse">array_reverse</a></li><li data-type='method'><a href="module-Array.html#~array_shift">array_shift</a></li><li data-type='method'><a href="module-Array.html#~array_shuffle">array_shuffle</a></li><li data-type='method'><a href="module-Array.html#~array_union">array_union</a></li><li data-type='method'><a href="module-Array.html#~array_unique">array_unique</a></li><li data-type='method'><a href="module-Array.html#~array_unshift">array_unshift</a></li><li data-type='method'><a href="module-Array.html#~array_without">array_without</a></li></ul></li><li><a href="module-Error.html">Error</a><ul class='methods'><li data-type='method'><a href="module-Error.html#~throwTypeError">throwTypeError</a></li></ul></li><li><a href="module-Function.html">Function</a><ul class='methods'><li data-type='method'><a href="module-Function.html#~compose">compose</a></li><li data-type='method'><a href="module-Function.html#~curry">curry</a></li><li data-type='method'><a href="module-Function.html#~once">once</a></li></ul></li><li><a href="module-Object.html">Object</a><ul class='methods'><li data-type='method'><a href="module-Object.html#~object_invert">object_invert</a></li><li data-type='method'><a href="module-Object.html#~object_keys">object_keys</a></li><li data-type='method'><a href="module-Object.html#~object_pluck">object_pluck</a></li><li data-type='method'><a href="module-Object.html#~object_values">object_values</a></li></ul></li><li><a href="module-String.html">String</a><ul class='methods'><li data-type='method'><a href="module-String.html#~string_capitalize">string_capitalize</a></li><li data-type='method'><a href="module-String.html#~string_pattern">string_pattern</a></li><li data-type='method'><a href="module-String.html#~string_trim">string_trim</a></li></ul></li><li><a href="module-Types.html">Types</a><ul class='methods'><li data-type='method'><a href="module-Types.html#~is_array">is_array</a></li><li data-type='method'><a href="module-Types.html#~is_boolean">is_boolean</a></li><li data-type='method'><a href="module-Types.html#~is_date">is_date</a></li><li data-type='method'><a href="module-Types.html#~is_defined">is_defined</a></li><li data-type='method'><a href="module-Types.html#~is_function">is_function</a></li><li data-type='method'><a href="module-Types.html#~is_json">is_json</a></li><li data-type='method'><a href="module-Types.html#~is_NaN">is_NaN</a></li><li data-type='method'><a href="module-Types.html#~is_null">is_null</a></li><li data-type='method'><a href="module-Types.html#~is_number">is_number</a></li><li data-type='method'><a href="module-Types.html#~is_object">is_object</a></li><li data-type='method'><a href="module-Types.html#~is_string">is_string</a></li><li data-type='method'><a href="module-Types.html#~is_symbol">is_symbol</a></li><li data-type='method'><a href="module-Types.html#~is_undefined">is_undefined</a></li></ul></li><li><a href="module-Utility.html">Utility</a><ul class='methods'><li data-type='method'><a href="module-Utility.html#~in_array">in_array</a></li><li data-type='method'><a href="module-Utility.html#~length">length</a></li><li data-type='method'><a href="module-Utility.html#~random_number">random_number</a></li><li data-type='method'><a href="module-Utility.html#~to_array">to_array</a></li><li data-type='method'><a href="module-Utility.html#~type">type</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">types/types.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * JavaScript type validations.
+ * @module Types
+ */
+
+/**
+ * Determines whether the passed value is an array.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an array, otherwise false.
+ * @example
+ * is_array([1, 2, 3])
+ * // => true
+ * @example
+ * (function() { return is_array(arguments); })();
+ * // => false
+ */
+function is_array(value) {
+    return Object.prototype.toString.call(value) === '[object Array]';
+}
+
+/**
+ * Determines whether the passed value is an object.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an object, otherwise false.
+ * @example
+ * function Coordinate(x = 0, y = 0) {
+ *     this.x = x;
+ *     this.y = y;
+ * }
+ *
+ * is_object(new Coordinate(10, 15));
+ * // => true
+ * @example
+ * is_object({ 'x': 0, 'y': 0 });
+ * // => true
+ * @example
+ * is_object([1, 2, 3])
+ * // => false
+ */
+function is_object(value) {
+    return value === Object(value) &amp;&amp; !is_array(value);
+}
+
+/**
+ * Determines whether the passed value is an strict string.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an string, otherwise false.
+ * @example
+ * is_string("Hello World!");
+ * // => true
+ */
+function is_string(value) {
+    return typeof value === 'string';
+}
+
+/**
+ * Determines whether the passed value is a number.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an number, otherwise false.
+ * @example
+ * is_number(10)
+ * // => true
+ * @example
+ * is_number(NaN)
+ * // => false
+ */
+function is_number(value) {
+    return typeof value === 'number' &amp;&amp; !is_NaN(value);
+}
+
+/**
+ * Determines whether the passed value is an boolean.
+ *
+ * @param {*} value The value to check.
+ * @returns {Boolean} true if the value is an boolean, otherwise false.
+ * @example
+ * is_boolean(false)
+ * // => true
+ */
+function is_boolean(value) {
+    return typeof value === 'boolean';
+}
+
+/**
+ * Determines whether the passed value is an function.
+ *
+ * @param {*} value The value to check.
+ * @returns {Boolean} true if the value is an function, otherwise false.
+ * @example
+ * is_function(is_boolean)
+ * // => true
+ */
+function is_function(value) {
+    return typeof value === 'function';
+}
+
+/**
+ * Determines whether the passed value is an null.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is null, otherwise false.
+ * @example
+ * is_null(null)
+ * // => true
+ * @example
+ * is_null(void 0)
+ * // => false
+ */
+function is_null(value) {
+    return value === null;
+}
+
+/**
+ * Determines whether the passed value is undefined.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is undefined, otherwise false.
+ * @example
+ * is_undefined(void 0)
+ * // => true
+ * @example
+ * is_undefined(null)
+ * // => false
+ */
+function is_undefined(value) {
+    return value === void 0;
+}
+
+/**
+ * Determines whether the passed value is not null or undefined.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is defined, otherwise false.
+ * @example
+ * const Person = {
+ *     a: 10
+ * };
+ *
+ * is_defined(Person.a);
+ * // => true
+ * is_defined(Person.b);
+ * // => false
+ */
+function is_defined(value) {
+    return !is_null(value) &amp;&amp; !is_undefined(value) &amp;&amp; !is_NaN(value);
+}
+
+/**
+ * Determines whether the passed value is not a number. (NaN)
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an NaN, otherwise false.
+ * @example
+ * is_NaN(1 / 'a');
+ * // => true
+ * is_NaN('a');
+ * // => false
+ */
+function is_NaN(value) {
+    return value !== value;
+}
+
+/**
+ * Determines whether the passed value is an Date object.
+ *
+ * @param {*} value The value to check.
+ * @returns {Boolean} true if the value is Date object, otherwise false.
+ * @example
+ * const date = new Date();
+ *
+ * is_date(date);
+ * // => true
+ *
+ * is_date(new Date().getYear());
+ * // => false
+ */
+function is_date(value) {
+    return Object.prototype.toString.call(value) === '[object Date]';
+}
+
+/**
+ * Determines if a value is valid JSON string.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is a valid JSON string, otherwise false.
+ * @example
+ * const ajaxData = {
+ *     url: www.linkedin.com/in/stefan-lazarevic
+ * };
+ *
+ * is_json(JSON.stringify(ajaxData))
+ * // => true
+ * is_json("Hello World")
+ * // => false
+ * is_json(ajaxData)
+ * // => false
+ */
+function is_json(value) {
+    if (is_string(value)) {
+        try {
+            JSON.parse(value);
+            return true;
+        } catch (err) {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Determines if a value is valid Symbol.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an symbol, otherwise false.
+ * @example
+ * is_symbol(Symbol('x')
+ * // => true
+ */
+function is_symbol(value) {
+    return typeof value === 'symbol';
+}
+
+module.exports = {
+    is_array,
+    is_object,
+    is_string,
+    is_number,
+    is_boolean,
+    is_function,
+    is_null,
+    is_undefined,
+    is_defined,
+    is_NaN,
+    is_date,
+    is_json,
+    is_symbol
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Apr 01 2018 21:10:39 GMT+0200 (CEST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="jseasy.min.js"></script>
+</body>
+</html>
