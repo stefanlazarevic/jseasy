@@ -15,7 +15,7 @@
   "eslintIgnore": [
     "*.test.js"
   ],
-  "author": "Stefan Lazarevic",
+  "author": "Stefan Lazarevic <stefanlazarevic.contact@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

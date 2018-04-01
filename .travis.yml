@@ -9,3 +9,7 @@ install:
 script: npm run ci
 after_success:
     - cat ./coverage/lcov.info | coveralls
+addons:
+  browserstack:
+    username: "stefanlazarevic1"
+    access_key: "6BoT1KrHcDfBi63xSkXB"
