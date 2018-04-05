@@ -33,9 +33,7 @@ function string_trim(value) {
  */
 function string_capitalize(value) {
     if (T.is_string(value)) {
-        return value.replace(/^\w/, function (character) {
-            return character.toUpperCase();
-        });
+        return value.charAt(0).toUpperCase() + value.toLowerCase().slice(1);
     }
 
     /* istanbul ignore next */
@@ -115,8 +113,40 @@ function string_pattern(pattern, replacement) {
     }
 }
 
+/**
+ * Returns a string equal in length to the length of the result of converting this object to a string.
+ * The result is a string value, not a String object.
+ *
+ * @param {String} str String to transform.
+ * @returns {String} Uppercased string.
+ */
+function string_uppercase(str) {
+    if (T.is_string(str)) {
+        return str.toUpperCase();
+    }
+
+    E.throwStringTypeError(str);
+}
+
+/**
+ * Returns a string equal in length to the length of the result of converting this object to a string.
+ * The result is a string value, not a String object.
+ *
+ * @param {String} str String to transform.
+ * @returns {String} Lowercased string.
+ */
+function string_lowercase(str) {
+    if (T.is_string(str)) {
+        return str.toLowerCase();
+    }
+
+    E.throwStringTypeError(str);
+}
+
 module.exports = {
     string_trim,
     string_capitalize,
     string_pattern,
+    string_uppercase,
+    string_lowercase,
 };

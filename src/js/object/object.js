@@ -1,3 +1,4 @@
+require('../jsdocs/jsdocs');
 const T = require('../types/types');
 const E = require('../errors/errors');
 const { length } = require('../utility/utility');
@@ -10,8 +11,8 @@ const { length } = require('../utility/utility');
 /**
  * Retrieves the value of a specified property from provided object.
  *
- * @param {string} key
- * @param {object} object
+ * @param {String} key
+ * @param {Object} object
  * @throws {TypeError}
  * @example
  * const person = {

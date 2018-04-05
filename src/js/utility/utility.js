@@ -93,7 +93,7 @@ function in_array(array, value) {
  */
 function type(value) {
     if (T.is_NaN(value)) {
-        return 'NaN';
+        return 'nan';
     }
 
     if (T.is_array(value)) {
@@ -102,6 +102,10 @@ function type(value) {
 
     if (T.is_null(value)) {
         return 'null';
+    }
+
+    if (T.is_regexp(value)) {
+        return 'regexp';
     }
 
     return typeof value;
@@ -133,11 +137,30 @@ function length(iteratableObject) {
         return Object.keys(iteratableObject).length;
     }
 
-    if (T.is_string(iteratableObject) || T.is_array(iteratableObject)) {
+    if (T.is_string(iteratableObject) || T.is_array(iteratableObject) || T.is_function(iteratableObject)) {
         return iteratableObject.length;
     }
 
     return 0;
+}
+
+/**
+ * Generate random string n characters long. If string length is not provided default string length will be 20.
+ *
+ * @param {Number} [length = 20] String length.
+ * @returns {String} Generated string of n characters.
+ */
+function random_string(length = 20) {
+    const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@$%^*()-+_';
+    let generatedString = '';
+    const possibleCharactersCount = possibleCharacters.length - 1;
+    let index = 0;
+
+    for (index; index < length; index++) {
+        generatedString += possibleCharacters.charAt(random_number(possibleCharactersCount));
+    }
+
+    return generatedString;
 }
 
 module.exports = {
@@ -146,4 +169,5 @@ module.exports = {
     in_array,
     type,
     length,
+    random_string,
 };

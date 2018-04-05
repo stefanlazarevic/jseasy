@@ -218,11 +218,27 @@ function is_json(value) {
  * @param {*} value The value to check.
  * @return {Boolean} true if the value is an symbol, otherwise false.
  * @example
- * is_symbol(Symbol('x')
+ * is_symbol(Symbol('x'))
  * // => true
  */
 function is_symbol(value) {
     return typeof value === 'symbol';
+}
+
+/**
+ * Determines if a value is valid Symbol.
+ *
+ * @param {*} value The value to check.
+ * @return {Boolean} true if the value is an RegExp, otherwise false.
+ * @example
+ * is_regexp(/abc/g);
+ * // => true
+ * @example
+ * is_regexp(new RegExp('abc', 'g'));
+ * // => true
+ */
+function is_regexp(value) {
+    return Object.prototype.toString.call(value) === '[object RegExp]';
 }
 
 module.exports = {
@@ -238,5 +254,6 @@ module.exports = {
     is_NaN,
     is_date,
     is_json,
-    is_symbol
+    is_symbol,
+    is_regexp
 };

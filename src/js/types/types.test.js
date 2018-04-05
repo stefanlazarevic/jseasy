@@ -166,4 +166,11 @@ describe('Testing type checkers', () => {
             expect(type.is_symbol(Symbol('x'))).toBe(true);
         });
     });
+
+    describe('Test regexp type validator', () => {
+        it('Should return true if value is a symbol.', () => {
+            expect(type.is_regexp(new RegExp('abc', 'g'))).toBe(true);
+            expect(type.is_regexp(/abc/)).toBe(true);
+        });
+    });
 });

@@ -21,14 +21,16 @@ describe('Testing utility functions', () => {
     });
 
     it('Should return type of an provided value.', () => {
-        expect(U.type("word")).toBe("string");
-        expect(U.type({0: 10, 1: 20, length: 2})).toBe("object");
-        expect(U.type(10)).toBe("number");
-        expect(U.type([1, 2, 3])).toBe("array");
-        expect(U.type(NaN)).toBe("NaN");
-        expect(U.type(function(){})).toBe("function");
+        expect(U.type({})).toBe("object");
+        expect(U.type([])).toBe("array");
+        expect(U.type(() => {})).toBe("function");
+        expect(U.type(false)).toBe("boolean");
+        expect(U.type("ok")).toBe("string");
         expect(U.type(null)).toBe("null");
         expect(U.type(void 0)).toBe("undefined");
+        expect(U.type(10)).toBe("number");
+        expect(U.type(/abc/)).toBe("regexp");
+        expect(U.type(NaN)).toBe('nan');
     });
 
     it('Should return length of array, string or object', () => {
@@ -38,5 +40,11 @@ describe('Testing utility functions', () => {
         expect(U.length({a: 5})).toBe(1);
         expect(U.length({})).toBe(0);
         expect(U.length(true)).toBe(0);
+    });
+
+    it('Should generate random string.', () => {
+        expect(U.random_string().length).toBe(20);
+        expect(U.random_string(5).length).toBe(5);
+        expect(U.random_string()).not.toBe(U.random_string());
     });
 });

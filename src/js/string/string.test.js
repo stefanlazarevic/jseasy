@@ -14,6 +14,7 @@ describe('Testing string manipulation functions', () => {
         it('Should return string capitalized', () => {
             expect(S.string_capitalize('stefan')).toBe('Stefan');
             expect(S.string_capitalize('  stefan')).toBe('  stefan');
+            expect(S.string_capitalize('STEFAN')).toBe('Stefan');
         });
 
         it('Should throw error if value is other then string.', () => {
@@ -34,5 +35,15 @@ describe('Testing string manipulation functions', () => {
             expect(typeof S.string_pattern('xxx-xxx')).toBe('function');
             expect(S.string_pattern('xxx-xxx')(123456)).toBe('123-456');
         });
+    });
+
+    describe('Testing string uppercase', () => {
+        expect(() => S.string_uppercase()).toThrowError(TypeError);
+        expect(S.string_uppercase('stefan')).toBe('STEFAN');
+    });
+
+    describe('Testing string lowecase', () => {
+        expect(() => S.string_lowercase()).toThrowError(TypeError);
+        expect(S.string_lowercase('STEFAN')).toBe('stefan');
     });
 });
