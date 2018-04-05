@@ -1,7 +1,9 @@
-require('../jsdocs/jsdocs');
-const T = require('../types/types');
-const E = require('../errors/errors');
-const { length } = require('../utility/utility');
+const length = require('../Utility/length');
+const is_string = require('../Assertion/is_string');
+const is_object = require('../Assertion/is_object');
+const is_array = require('../Assertion/is_array');
+const is_defined = require('../Assertion/is_defined');
+const is_function = require('../Assertion/is_function');
 
 /**
  * A collection of object manipulating functions.
@@ -34,22 +36,22 @@ const { length } = require('../utility/utility');
 function object_pluck(key, object) {
     const numberOfArguments = length(arguments);
 
-    if (!T.is_string(key)) {
-        E.throwStringTypeError(key);
+    if (!is_string(key)) {
+        // E.throwStringTypeError(key);
     }
 
     if (numberOfArguments === 1) {
         return function getObject(_object) {
-            if (!T.is_object(_object)) {
-                E.throwObjectTypeError(_object);
+            if (!is_object(_object)) {
+                // E.throwObjectTypeError(_object);
             }
 
             return _deepAccessPluck(_object, key);
         };
     }
 
-    if (!T.is_object(object)) {
-        E.throwObjectTypeError(object);
+    if (!is_object(object)) {
+        // E.throwObjectTypeError(object);
     }
 
     return _deepAccessPluck(object, key);
@@ -99,7 +101,7 @@ function object_pluck(key, object) {
  * // => ['fname', 'lname']
  */
 function object_keys(object) {
-    if (T.is_object(object) || T.is_array(object) || T.is_string(object)) {
+    if (is_object(object) || is_array(object) || is_string(object)) {
         const keys = [];
         let key;
         for (key in object) {
@@ -131,7 +133,7 @@ function object_keys(object) {
  * // => ['Stefan', 'Lazarevic']
  */
 function object_values(object) {
-    if (T.is_object(object)) {
+    if (is_object(object)) {
         const values = [];
         let key;
 
@@ -145,7 +147,7 @@ function object_values(object) {
         return values;
     }
 
-    E.throwObjectTypeError(object);
+    // E.throwObjectTypeError(object);
 }
 
 /**
@@ -168,14 +170,14 @@ function object_values(object) {
  * //    }
  */
 function object_invert(object) {
-    if (T.is_object(object)) {
+    if (is_object(object)) {
         const invertedObject = {};
         let key;
         for (key in object) {
             /* istanbul ignore next */
             if (object.hasOwnProperty(key)) {
                 const value = object[key];
-                if (T.is_defined(value) && !T.is_function(value)) {
+                if (is_defined(value) && !is_function(value)) {
                     invertedObject[value] = key;
                 }
             }
@@ -184,7 +186,7 @@ function object_invert(object) {
         return invertedObject;
     }
 
-    E.throwObjectTypeError(object);
+    // E.throwObjectTypeError(object);
 }
 
 module.exports = {
