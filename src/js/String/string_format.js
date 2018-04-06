@@ -6,10 +6,11 @@ const not = require('../Logic/not');
 const throwStringTypeError = require('../Errors/stringTypeError');
 
 /**
- * Build a new string using provided pattern with 'x' mark representing
+ * Build a new string using provided pattern with `x` mark representing
  * each value placeholder. Accepts 3 different type of value containers:
  * Array, String and Number.
  *
+ * @memberof module:String
  * @param {String} pattern A pattern that will be fullfilled.
  * @param {Array|Number|String} toReplace
  * @returns {String} New string with fullfilled pattern placeholders.

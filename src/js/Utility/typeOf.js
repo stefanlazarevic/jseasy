@@ -7,6 +7,7 @@ const is_regexp = require('../Assertion/is_regexp');
  * Return type of provided value.
  * Prevent pitfall types such as NaN, null, []
  *
+ * @memberof module:Utility
  * @param {mix} [value = 'undefined'] Checked value.
  * @returns {String} A type of value.
  * @since 0.1.0

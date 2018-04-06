@@ -4,6 +4,7 @@ const not = require('../Logic/not');
 /**
  * A function that determines whether the passed value is an object.
  *
+ * @memberof module:Assertion
  * @param {*} value The value to check.
  * @returns {Boolean} `true` if the value is an object, otherwise `false`.
  * @since 0.1.0

@@ -1,7 +1,9 @@
 const length = require('../Utility/length');
 const array_rest = require('../Array/array_rest');
 const to_array = require('../Convertor/to_array');
+const is_function = require('../Assertion/is_function');
 const arity = require('./arity');
+const throwFunctionTypeError = require('../Errors/functionTypeError');
 
 /**
  * Currying refers to the process of transforming a function with multiple arity
@@ -10,6 +12,7 @@ const arity = require('./arity');
  * The curried effect is achieved by binding some of the arguments to the first function invoke,
  * so that those values are fixed for the next invocation.
  *
+ * @memberof module:FP
  * @param {Function} fn The function to curry.
  * @return {Function} Curried function.
  * @since 0.1.0
@@ -24,7 +27,9 @@ const arity = require('./arity');
  * sumBy8(6); // => 14
  */
 function curry(fn) {
-    // if (!is_function(fn)) throwFunctionTypeError(fn);
+    if (!is_function(fn)) {
+        throwFunctionTypeError(fn);
+    }
 
     const numOfArgs = arity(fn);
 

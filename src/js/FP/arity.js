@@ -3,6 +3,7 @@ const is_function = require('../Assertion/is_function');
 /**
  * A function that returns number of arguments a function takes.
  *
+ * @memberof module:FP
  * @param {Function}
  * @returns {Number} Number of arguments a function takes.
  * @since 0.1.0

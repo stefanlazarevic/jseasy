@@ -7,6 +7,7 @@ const throwFunctionTypeError = require('../Errors/functionTypeError');
  * At first sign unary function seems useless, but here's the pitfall example
  * that can be prevented using unary function.
  *
+ * @memberof module:FP
  * @param {Function} fn The function to wrap.
  * @returns {Function} A new function wrapping `fn`. The new function is guaranteed to be of arity 1.
  * @since 0.1.0

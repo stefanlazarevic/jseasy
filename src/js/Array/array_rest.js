@@ -10,6 +10,7 @@ const length = require('../Utility/length');
  * @param {Number|Array} Number of elements to skip or Array to process.
  * @param {Array} [arr] Array to process
  * @return {Array} Returns the new array containing rest values
+ * @since 0.1.0
  * @example
  * array_rest([1, 2, 3, 4]);
  * // => [2, 3, 4]

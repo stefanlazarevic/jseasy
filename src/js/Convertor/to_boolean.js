@@ -1,6 +1,7 @@
 /**
  * A function that converts truthy value into boolean `true` and falsy into boolean `false`.
  *
+ * @memberof module:Convertor
  * @param {*} value Value to convert.
  * @returns {Boolean} Boolean representation of a provided value.
  * @since 0.1.0

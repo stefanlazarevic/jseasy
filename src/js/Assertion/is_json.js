@@ -2,6 +2,7 @@ const is_string = require('./is_string');
 /**
  * A function that determines if a value is valid JSON string.
  *
+ * @memberof module:Assertion
  * @param {*} value The value to check.
  * @return {Boolean} true if the value is a valid JSON string, otherwise false.
  * @since 0.1.0

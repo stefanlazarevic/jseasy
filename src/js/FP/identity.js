@@ -1,6 +1,7 @@
 /**
  * Function that takes one argument and does nothing but return the value untouched.
  *
+ * @memberof module:FP
  * @param {*} value Value to be returned.
  * @returns {*} Returns passed value.
  * @since 0.1.0

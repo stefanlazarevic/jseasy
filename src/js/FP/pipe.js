@@ -4,6 +4,7 @@
  * The only difference between pipe and compose if that pipe takes function arguments from left to right,
  * and by that provides additional readability.
  *
+ * @memberof module:FP
  * @param {Functions} - List of functions to compose.
  * @return {Function} - Function that expect a value to compute.
  * @since 0.1.0

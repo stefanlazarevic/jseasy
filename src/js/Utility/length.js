@@ -3,6 +3,7 @@ const is_defined = require('../Assertion/is_defined');
 /**
  * Get length of an object.
  *
+ * @memberof module:Utility
  * @param {*} object
  * @returns {Number} Lenght of an object.
  * @since 0.1.0

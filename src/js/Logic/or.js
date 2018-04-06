@@ -1,6 +1,7 @@
 /**
  * A function that returns `true` if any of the provided arguments is truthy.
  *
+ * @memberof module:Logic
  * @param {*} argumentOne
  * @param {*} argumentTwo
  * @returns {Boolean}

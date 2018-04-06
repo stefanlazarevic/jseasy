@@ -5,6 +5,7 @@
  * Composed function take data and process it through all pipes from right to left
  * producing new data. (f o g) => f(g(o));
  *
+ * @memberof module:FP
  * @param {Functions} - List of functions to compose.
  * @return {Function} - Function that expect a value to compute.
  * @since 0.1.0

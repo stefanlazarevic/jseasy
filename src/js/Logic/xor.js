@@ -1,6 +1,7 @@
 /**
  * A function that returns `true` if only one of arguments is true. Otherwise `false`.
  *
+ * @memberof module:Logic
  * @param {*} argumentOne
  * @param {*} argumentTwo
  * @returns {Boolean}

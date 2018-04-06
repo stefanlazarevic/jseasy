@@ -4,7 +4,7 @@ describe('', () => {
     const sum = (a, b) => a + b;
 
     it('Throws an TypeError if function is not provided.', () => {
-        // expect(() => curry(10)).toThrowError(TypeError);
+        expect(() => curry(10)).toThrowError(TypeError);
     });
 
     it('Returns function if not enough arguments provided.', () => {

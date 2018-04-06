@@ -3,6 +3,7 @@ const typeOf = require('../Utility/typeOf');
 /**
  * Throw new TypeError with invalid message.
  *
+ * @memberof module:Errors
  * @param {String} expected
  * @param {*} actual
  * @since 0.1.0

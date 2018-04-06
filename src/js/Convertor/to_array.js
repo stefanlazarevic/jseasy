@@ -4,6 +4,7 @@ const is_defined = require('../Assertion/is_defined');
  * Creates a real Array from the list (anything that can be iterated over).
  * Useful for transmuting the arguments object.
  *
+ * @memberof module:Convertor
  * @param {*} [ObjectWithLength] An object that has length property.
  * @returns {Array} Array containing all values from an ObjectWithLength.
  * @since 0.1.0

@@ -1,6 +1,7 @@
 const not = require('../Logic/not');
 const and = require('../Logic/and');
-const { is_function, is_defined } = require('../Assertion/_Assertion');
+const is_function = require('../Assertion/is_function');
+const is_defined = require('../Assertion/is_defined');
 
 const inSafeRange = (value) => and(value >= 0, value <= Number.MAX_SAFE_INTEGER);
 
@@ -14,6 +15,7 @@ const inSafeRange = (value) => and(value >= 0, value <= Number.MAX_SAFE_INTEGER)
  * - Must contain length property.
  * - Lenght must be in range from 0 to Number.MAX_SAFE_INTEGER
  *
+ * @memberof module:Assertion
  * @param {*} value The value to check.
  * @returns {Boolean} `true` if the value is array-like, otherwise `false`.
  * @since 0.1.0

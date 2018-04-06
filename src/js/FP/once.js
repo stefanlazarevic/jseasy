@@ -4,6 +4,7 @@ const throwFunctionTypeError = require('../Errors/functionTypeError');
 /**
  * Creates a version of the function that can only be called one time.
  *
+ * @memberof module:FP
  * @param {Function} fn
  * @return {Function}
  * @since 0.1.0

@@ -8,6 +8,7 @@ const throwFunctionTypeError = require('../Errors/functionTypeError');
  * The process of applying a function to some of its arguments. The partially applied function gets returned for later * use. In other words, a function that takes a function with multiple parameters and returns a function with fewer
  * parameters.
  *
+ * @memberof module:FP
  * @param {Function} fn
  * @param {Arguments} args arguments to apply.
  * @return {Function} Function that takes rest of the arguments.

@@ -5,11 +5,14 @@ const not = require('../Logic/not');
 /**
  * A function that converts any value in their representative string.
  *
+ * @memberof module:Convertor
  * @param {*} value Value to convert.
  * @returns {String} Converted string.
  * @since 0.1.0
  * @example
- *
+ * to_string([1, 2, 3]); // => "[1,2,3]"
+ * to_string({}); // => "{}"
+ * to_string(123); // => "123"
  */
 function to_string(value) {
     if (not(arguments.length)) {
