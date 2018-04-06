@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FP/partial.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Array.html">Array</a><ul class='methods'><li data-type='method'><a href="module-Array.html#.array_compact">array_compact</a></li><li data-type='method'><a href="module-Array.html#.array_first">array_first</a></li><li data-type='method'><a href="module-Array.html#.array_flatten">array_flatten</a></li><li data-type='method'><a href="module-Array.html#.array_initial">array_initial</a></li><li data-type='method'><a href="module-Array.html#.array_intersection">array_intersection</a></li><li data-type='method'><a href="module-Array.html#.array_last">array_last</a></li><li data-type='method'><a href="module-Array.html#.array_pluck">array_pluck</a></li><li data-type='method'><a href="module-Array.html#.array_rest">array_rest</a></li><li data-type='method'><a href="module-Array.html#.array_reverse">array_reverse</a></li><li data-type='method'><a href="module-Array.html#.array_shuffle">array_shuffle</a></li><li data-type='method'><a href="module-Array.html#.array_union">array_union</a></li><li data-type='method'><a href="module-Array.html#.array_unique">array_unique</a></li><li data-type='method'><a href="module-Array.html#.array_without">array_without</a></li></ul></li><li><a href="module-Assertion.html">Assertion</a><ul class='methods'><li data-type='method'><a href="module-Assertion.html#.in_array">in_array</a></li><li data-type='method'><a href="module-Assertion.html#.is_array">is_array</a></li><li data-type='method'><a href="module-Assertion.html#.is_arrayLike">is_arrayLike</a></li><li data-type='method'><a href="module-Assertion.html#.is_boolean">is_boolean</a></li><li data-type='method'><a href="module-Assertion.html#.is_date">is_date</a></li><li data-type='method'><a href="module-Assertion.html#.is_defined">is_defined</a></li><li data-type='method'><a href="module-Assertion.html#.is_function">is_function</a></li><li data-type='method'><a href="module-Assertion.html#.is_integer">is_integer</a></li><li data-type='method'><a href="module-Assertion.html#.is_json">is_json</a></li><li data-type='method'><a href="module-Assertion.html#.is_nan">is_nan</a></li><li data-type='method'><a href="module-Assertion.html#.is_null">is_null</a></li><li data-type='method'><a href="module-Assertion.html#.is_number">is_number</a></li><li data-type='method'><a href="module-Assertion.html#.is_object">is_object</a></li><li data-type='method'><a href="module-Assertion.html#.is_objectLike">is_objectLike</a></li><li data-type='method'><a href="module-Assertion.html#.is_regexp">is_regexp</a></li><li data-type='method'><a href="module-Assertion.html#.is_string">is_string</a></li><li data-type='method'><a href="module-Assertion.html#.is_symbol">is_symbol</a></li><li data-type='method'><a href="module-Assertion.html#.is_undefined">is_undefined</a></li></ul></li><li><a href="module-Convertor.html">Convertor</a><ul class='methods'><li data-type='method'><a href="module-Convertor.html#.to_array">to_array</a></li><li data-type='method'><a href="module-Convertor.html#.to_boolean">to_boolean</a></li><li data-type='method'><a href="module-Convertor.html#.to_lower">to_lower</a></li><li data-type='method'><a href="module-Convertor.html#.to_string">to_string</a></li><li data-type='method'><a href="module-Convertor.html#.to_stringCapitalized">to_stringCapitalized</a></li><li data-type='method'><a href="module-Convertor.html#.to_upper">to_upper</a></li></ul></li><li><a href="module-Errors.html">Errors</a><ul class='methods'><li data-type='method'><a href="module-Errors.html#.throwTypeError">throwTypeError</a></li></ul></li><li><a href="module-FP.html">FP</a><ul class='methods'><li data-type='method'><a href="module-FP.html#.arity">arity</a></li><li data-type='method'><a href="module-FP.html#.compose">compose</a></li><li data-type='method'><a href="module-FP.html#.curry">curry</a></li><li data-type='method'><a href="module-FP.html#.identity">identity</a></li><li data-type='method'><a href="module-FP.html#.memoize">memoize</a></li><li data-type='method'><a href="module-FP.html#.once">once</a></li><li data-type='method'><a href="module-FP.html#.partial">partial</a></li><li data-type='method'><a href="module-FP.html#.pipe">pipe</a></li><li data-type='method'><a href="module-FP.html#.unary">unary</a></li></ul></li><li><a href="module-Logic.html">Logic</a><ul class='methods'><li data-type='method'><a href="module-Logic.html#.and">and</a></li><li data-type='method'><a href="module-Logic.html#.not">not</a></li><li data-type='method'><a href="module-Logic.html#.or">or</a></li><li data-type='method'><a href="module-Logic.html#.xor">xor</a></li></ul></li><li><a href="module-Object.html">Object</a><ul class='methods'><li data-type='method'><a href="module-Object.html#.invert">invert</a></li><li data-type='method'><a href="module-Object.html#.keys">keys</a></li><li data-type='method'><a href="module-Object.html#.pluck">pluck</a></li><li data-type='method'><a href="module-Object.html#.values">values</a></li></ul></li><li><a href="module-String.html">String</a><ul class='methods'><li data-type='method'><a href="module-String.html#.string_format">string_format</a></li><li data-type='method'><a href="module-String.html#.trim">trim</a></li></ul></li><li><a href="module-Utility.html">Utility</a><ul class='methods'><li data-type='method'><a href="module-Utility.html#.length">length</a></li><li data-type='method'><a href="module-Utility.html#.random_number">random_number</a></li><li data-type='method'><a href="module-Utility.html#.random_string">random_string</a></li><li data-type='method'><a href="module-Utility.html#.typeOf">typeOf</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">FP/partial.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const is_function = require('../Assertion/is_function');
+const array_rest = require('../Array/array_rest');
+const to_array = require('../Convertor/to_array');
+const not = require('../Logic/not');
+const throwFunctionTypeError = require('../Errors/functionTypeError');
+
+/**
+ * The process of applying a function to some of its arguments. The partially applied function gets returned for later * use. In other words, a function that takes a function with multiple parameters and returns a function with fewer
+ * parameters.
+ *
+ * @memberof module:FP
+ * @param {Function} fn
+ * @param {Arguments} args arguments to apply.
+ * @return {Function} Function that takes rest of the arguments.
+ * @since 0.1.0
+ * @example
+ * const multiply = (a, b) => a * b;
+ * const double = partial(multiply, 2);
+ *
+ * double(5); // => 10
+ */
+function partial(fn) {
+    if (not(is_function(fn))) {
+        throwFunctionTypeError(fn);
+    }
+
+    const firstArguments = array_rest(to_array(arguments));
+
+    return function takeRestOfTheArguments() {
+        return fn.apply(this, firstArguments.concat(to_array(arguments)));
+    };
+}
+
+module.exports = partial;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Apr 06 2018 15:50:15 GMT+0200 (CEST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="jseasy.min.js"></script>
+</body>
+</html>
