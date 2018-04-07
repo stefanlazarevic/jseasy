@@ -10,10 +10,10 @@ const inSafeRange = (value) => and(value >= 0, value <= Number.MAX_SAFE_INTEGER)
  *
  * For a object to be array-like it must meet following conditions.
  *
- * - Must not be a function.
- * - Must not be null.
- * - Must contain length property.
- * - Lenght must be in range from 0 to Number.MAX_SAFE_INTEGER
+ * - Must not be a `function`.
+ * - Must not be `null`.
+ * - Must contain `length` property.
+ * - Lenght must be in range between `0` and `Number.MAX_SAFE_INTEGER`
  *
  * @memberof module:Assertion
  * @param {*} value The value to check.

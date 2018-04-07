@@ -4,7 +4,7 @@ const is_array = require('../Assertion/is_array');
  * Flattens a nested array (the nesting can be to any depth).
  * If you pass shallow, the array will only be flattened a single level.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Array} arr Array to process.
  * @param {Boolean} [shallow] Flat only one level in depth.
  * @return {Array} Returns flatten array.

@@ -12,6 +12,7 @@ describe('Testing to string conversion.', () => {
         expect(to_string(undefined)).toBe('undefined');
         expect(to_string(true)).toBe('true');
         expect(to_string(Symbol('x'))).toBe('Symbol(x)');
+        expect(to_string(/abc/g)).toBe('/abc/g');
     });
 
     it('Returns array created from ObjectWithLength', () => {

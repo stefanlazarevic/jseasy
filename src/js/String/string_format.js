@@ -25,6 +25,9 @@ const throwStringTypeError = require('../Errors/stringTypeError');
  * @example
  * string_pattern('xxx-xxx')('123456');
  * // => '123-456'
+ * @example
+ * string_pattern('x@x.x')(['stefanlazarevic.contact', 'gmail', 'com']);
+ * // => 'stefanlazarevic.contact@gmail.com'
  */
 function string_format(pattern, replacement) {
     if (is_string(pattern)) {

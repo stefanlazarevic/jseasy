@@ -1,5 +1,6 @@
 const is_objectLike = require('../Assertion/is_objectLike');
 const is_symbol = require('../Assertion/is_symbol');
+const is_regexp = require('../Assertion/is_regexp');
 const not = require('../Logic/not');
 
 /**
@@ -17,6 +18,10 @@ const not = require('../Logic/not');
 function to_string(value) {
     if (not(arguments.length)) {
         return '';
+    }
+
+    if (is_regexp(value)) {
+        return '' + value;
     }
 
     if (is_objectLike(value)) {

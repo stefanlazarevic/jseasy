@@ -4,9 +4,11 @@
  * @since 0.1.0
  */
 const string_format = require('./string_format');
+const stripNonNumeric = require('./stripNonNumeric');
 const trim = require('./trim');
 
 module.exports = {
     string_format,
-    trim
+    stripNonNumeric,
+    trim,
 };

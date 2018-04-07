@@ -8,7 +8,7 @@ const length = require('../Utility/length');
  * By providing number (n) as a first argument,
  * result will be an array of the first n elements from a list.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Number|Array} n Number of first values to get, or array.
  * @param {Array|Boolean} [arr] The array to process, or array convert flag.
  * @returns {mix|Array} Returns first value from array or the new array containing n values.

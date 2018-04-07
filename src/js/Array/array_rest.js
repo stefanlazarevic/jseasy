@@ -6,7 +6,7 @@ const length = require('../Utility/length');
  * Returns the rest of the elements in an array.
  * Pass an index to return the values of the array from that index onward.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Number|Array} Number of elements to skip or Array to process.
  * @param {Array} [arr] Array to process
  * @return {Array} Returns the new array containing rest values

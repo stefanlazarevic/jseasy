@@ -7,7 +7,7 @@ const length = require('../Utility/length');
  * Returns the last element of an array.
  * Passing n will return the last n elements of the array.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Number|Array} n Number of first elements to exclude or Array to process.
  * @param {Array|Boolean} a Array to process or array convert flag.
  * @return {mix|Array} Returns last value or the new array containing last value(s)

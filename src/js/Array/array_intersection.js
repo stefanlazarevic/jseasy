@@ -14,7 +14,7 @@ const length = require('../Utility/length');
  *
  * TODO: Performance optimization.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Array} array Array to process.
  * @return {Array} Returns the new array of shared values.
  * @since 0.1.0

@@ -8,7 +8,7 @@ const length = require('../Utility/length');
  * Especially useful on the arguments object.
  * Pass n to exclude the last n elements from the result.
  *
- * @memberOf module:Array
+ * @memberof module:Array
  * @param {Number|Array} n Number of last values to exclude, or array to process.
  * @param {Array} [array] The array to process.
  * @return {Array} Returns the new array containing initial values.
