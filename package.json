@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A small intuitive functional library crafted to solve most common JavaScript problems in pure functional style..",
   "main": "src/js/index.js",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node"
+  },
   "scripts": {
     "copy": "cp ./dist/jseasy.min.js ./node_modules/minami/static/scripts/",
     "test": "npm run lint && jest",
@@ -21,15 +25,15 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-es2015": "^6.24.1",
-    "docdash": "^0.4.0",
-    "eslint": "^4.19.1",
-    "eslint-watch": "^3.1.3",
-    "jest": "^22.4.3",
-    "jsdoc": "^3.5.5",
-    "minami": "^1.2.3",
-    "webpack": "^3.11.0"
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.4",
+    "babel-preset-es2015": "6.24.1",
+    "docdash": "0.4.0",
+    "eslint": "4.19.1",
+    "eslint-watch": "3.1.3",
+    "jest": "22.4.3",
+    "jsdoc": "3.5.5",
+    "minami": "1.2.3",
+    "webpack": "3.11.0"
   }
 }
